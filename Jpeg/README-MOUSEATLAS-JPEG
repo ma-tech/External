@@ -1,0 +1,28 @@
+VERSION MRC HGU $Id$
+
+Some Mouse Atlas software depends on a jpeg library. On many systems
+there is already a suitable jpeg library installed. Where this is not
+the case a jpeg library may be built from the sources contained in the
+gzip compressed tar archive file in this directory. To build and install
+the library:
+  1. Untar the jpeg source. Using GNU tar this can be done simply by:
+       gtar -zxf jpeg-6b.tar.gz
+  2. Change directory into the untared source directory:
+       cd jpeg-6b
+  3. Set the CC and CFLAGS environment variables for your C compiler.
+     Using Sun's compiler and a tcsh or csh shell, then the following is
+     appropriate:
+       setenv CC cc; setenv CFLAGS '-fast -xchip=ultra'
+     For the GNU C compiler use:
+       setenv CC gcc; setenv CFLAGS '-O3'
+  4. Configure the software to build using your C compiler and install in
+     the Mouse Atlas software tree. Using cc as the compiler and
+     /opt/MouseAtlas as the root of the Mouse Atlas software tree, then
+     the following is appropriate:
+       ./configure --prefix=/opt/MouseAtlas
+  5. Build the software:
+       make
+  6. Test where it will be installed:
+       make -n install
+  7. Having the appropriate file permissions, install the software:
+       make install
