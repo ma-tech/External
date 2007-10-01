@@ -13,7 +13,7 @@ and that you have checked out Makefile.conf
 .....................................
 unpack the tiff distribution
 % cd src/External/Tiff;
-% cvs tar zxf tiff-v3.5.7.tar.gz;
+% tar zxf tiff-v3.5.7.tar.gz;
 .....................................
 copy the sample makefile for Borland makefile.bcc
 % cp makefile.bcc tiff-v3.5.7/libtiff;
