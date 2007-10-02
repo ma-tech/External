@@ -5,27 +5,32 @@ This file explains how to build the jpeg libraries using Borland's free command 
 ---------------------------------------------------------------------------------------------------
 (Instructions on obtaining and setting up Borland's free compiler are in JAtlasViewer/src/borland/README)
 ---------------------------------------------------------------------------------------------------
+...................................
+===================================
+Do The Following On A Linux Machine
+===================================
+...................................
 It is assumed that you have checked External out of cvs using something like
-% cvs co src/External;
+% cvs co src/External
 .....................................
 and that you have checked out Makefile.conf
-% cvs co src/Makefile.conf;
+% cvs co src/Makefile.conf
 .....................................
 unpack the jpeg distribution
-% cd src/External/Jpeg;
-% cvs tar zxf jpeg-6b.tar.gz;
+% cd src/External/Jpeg
+% tar zxf jpeg-6b.tar.gz
 .....................................
 READ THE INSTRUCTIONS IN jpeg-6b/install.doc
 .....................................
 copy the patchfile for Borland makefile.bcc
-% cp makefile.bcc.diff jpeg-6b;
+% cp makefile.bcc.diff jpeg-6b
 .....................................
 make a backup copy of the file we are going to patch
-% cd jpeg-6b;
-% cp makefile.bcc makefile.bcc.orig;
+% cd jpeg-6b
+% cp makefile.bcc makefile.bcc.orig
 .....................................
 apply a patch to the file we are going to use as our Makefile
-% patch -i makefile.bcc.diff;
+% patch -i makefile.bcc.diff
 (this will modify makefile.bcc)
 .....................................
 copy the patched file to Makefile
@@ -39,7 +44,16 @@ generate a jmemsys.c file
 % cp jmemansi.c jmemsys.c
 (don't change anything)
 .....................................
-
-you should now be able to build the jpeg libs using
-% make
+===================================
+Do The Following On A Win32 Machine
+===================================
+...................................
+Read the instructions in JAtlasViewer/src/borland/README_WIN32_WLZ and modify winnt.h accordingly.
+...................................
+build libjpeg.lib
+> cd src\External\Jpeg\jpeg-6b
+> make
+...................................
+Restore the original version of winnt.h.
+...................................
 
