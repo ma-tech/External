@@ -5,22 +5,33 @@ This file explains how to build the libtiff libraries using Borland's free comma
 ---------------------------------------------------------------------------------------------------
 (Instructions on obtaining and setting up Borland's free compiler are in JAtlasViewer/src/borland/README)
 ---------------------------------------------------------------------------------------------------
+...................................
+===================================
+Do The Following On A Linux Machine
+===================================
+...................................
 It is assumed that you have checked External out of cvs using something like
-% cvs co src/External;
+% cvs co src/External
 .....................................
 and that you have checked out Makefile.conf
-% cvs co src/Makefile.conf;
+% cvs co src/Makefile.conf
 .....................................
 unpack the tiff distribution
-% cd src/External/Tiff;
-% tar zxf tiff-v3.5.7.tar.gz;
+% cd src/External/Tiff
+% tar zxf tiff-v3.5.7.tar.gz
 .....................................
 copy the sample makefile for Borland makefile.bcc
-% cp makefile.bcc tiff-v3.5.7/libtiff;
-% cd tiff-v3.5.7/libtiff;
+% cp makefile.bcc tiff-v3.5.7/libtiff
+% cd tiff-v3.5.7/libtiff
 % cp makefile.bcc Makefile
 .....................................
 
-you should now be able to build the libtiff libs using
-% make // NOTE: you should be in the directory  src/External/Tiff/tiff-v3.5.7/libtiff
+...................................
+===================================
+Do The Following On A Win32 Machine
+===================================
+...................................
+build the libtiff lib
+> cd src\External\Tiff\tiff-v3.5.7\libtiff
+> make
 
