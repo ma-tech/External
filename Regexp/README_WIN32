@@ -1,39 +1,42 @@
 README_WIN32
 ============
 
-This file explains how to get the regexp library required when
+This file explains how to make a regexp library available when
 compiling libbibfile on Win32 using Borland's free command line compiler bcc55.
----------------------------------------------------------------------------------------------------
-NOTE: this is not the same regular expression library which is installed on Linux machines.
 ---------------------------------------------------------------------------------------------------
 (Instructions on obtaining and setting up Borland's free compiler are in JAtlasViewer/src/borland/README)
 ---------------------------------------------------------------------------------------------------
-
-There is a binary of rxspencer.lib available at
+There is a zipped binary of rxspencer.lib in cvs which was obtained from
 http://gnuwin32.sourceforge.net/packages/rxspencer.htm
+by clicking on the 'zip' link for the file described as 'Developer files'
+The zip file is rxspencer-3.8.g.3-1-lib.zip
 --------------------------------------------------------------
-Click on the 'zip' link for the file described as 'Developer files'
---------------------------------------------------------------
-Download a file called
-rxspencer-3.8.g.3-1-lib.zip
-to src/External/Regexp
---------------------------------------------------------------
-% cd src/External/Regexp;
-% unzip rxspencer-3.8.g.3-1-lib.zip;
+NOTE: this is not the same regular expression library which is installed on Linux machines.
+---------------------------------------------------------------------------------------------------
+...................................
+===================================
+Do The Following On A Linux Machine
+===================================
+...................................
+It is assumed that you have checked External out of cvs using something like
+% cvs co src/External
+.....................................
+% cd src/External/Regexp
+% unzip rxspencer-3.8.g.3-1-lib.zip
 You will get 3 directories:
 include		// should contain rxspencer/regex.h
 lib		// should contain rxspencer.lib
 manifest
 --------------------------------------------------------------
 Copy a patch file to include/rxspencer
-% cp regex.h.diff include/rxspencer;
+% cp regex.h.diff include/rxspencer
 --------------------------------------------------------------
 Make a backup of the file we are going to patch
-% cd include/rxspencer;
+% cd include/rxspencer
 % cp regex.h regex.h.orig
 --------------------------------------------------------------
 Apply the patch
-% patch -i regex.h.diff;
+% patch -i regex.h.diff
 --------------------------------------------------------------
 
 You should now be able to compile libbibfile.lib using Borland's free command line compiler bcc55.
