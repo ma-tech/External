@@ -20,7 +20,7 @@ unpack the jpeg distribution
 % cd src/External/Jpeg
 % tar zxf jpeg-6b.tar.gz
 .....................................
-READ THE INSTRUCTIONS IN jpeg-6b/install.doc
+READ jpeg-6b/install.doc
 .....................................
 copy the patchfile for Borland makefile.bcc
 % cp makefile.bcc.diff jpeg-6b
@@ -38,22 +38,69 @@ copy the patched file to Makefile
 .....................................
 generate a jconfig.h file
 % cp jconfig.doc jconfig.h
-(edit the comments at the top of this file to change the name to jconfig.h)
+(you can edit the comments at the top of this file to change the name to jconfig.h)
 .....................................
 generate a jmemsys.c file
 % cp jmemansi.c jmemsys.c
-(don't change anything)
+(don't change anything in this file)
 .....................................
 ===================================
 Do The Following On A Win32 Machine
 ===================================
-...................................
-Read the instructions in JAtlasViewer/src/borland/README_WIN32_WLZ and modify winnt.h accordingly.
-...................................
+..............................................................................
+Read the instructions 'Modifying winnt.h' below and modify winnt.h accordingly.
+Don't forget to make a backup of the original winnt.h.
+..............................................................................
 build libjpeg.lib
 > cd src\External\Jpeg\jpeg-6b
 > make
-...................................
-Restore the original version of winnt.h.
-...................................
 
+You should now have a file called libjpeg.lib
+
+.......................................
+Restore the original version of winnt.h
+.......................................
+
+===========================================================================
+=================
+Modifying winnt.h
+=================
+
+This section describes changes that need to be made to winnt.h in Borland's free command line C compiler bcc55
+in order to build libjpeg.lib (required by libWlzExtFF when building JWlz.dll).
+-------------------------------------------------------------------------------------------------------
+(NOTE that libtiff.lib (also required by libWlzExtFF) requires the Borland file winnt.h to be unmodified,
+so you will need to make a backup copy of the original C:\Borland\BCC55\Include\winnt.h)
+...........................................................................
+Edit the file C:\Borland\BCC55\Include\winnt.h as follows
+...........................................................................
+At about line 724 in winnt.h
+change:		typedef BYTE BOOLEAN;
+to:		typedef boolean BOOLEAN;
+...........................................................................
+If you get compile time error messages saying something like: ',' expected at line 724.
+it probably means that boolean is not defined anywhere.
+In this case add 'typedef int boolean;' before line 724
+e.g.
+
+typedef int boolean;
+typedef boolean BOOLEAN;
+...........................................................................
+
+
+Alternatively there is a patch file which allows you to do this on a Linux machine.
+Copy C:\Borland\BCC55\Include\winnt.h to a convenient location (that you can access from a Linux machine).
+...........................................................................
+Copy the patch file JAtlasViewer/src/borland/winnt.h.diff to the same directory.
+...........................................................................
+Apply the patch.
+% patch -i winnt.h.diff
+...........................................................................
+Copy (the patched file) winnt.h back to C:\Borland\BCC55\Include.
+...........................................................................
+
+The patched file will have the following
+/* typedef BYTE  BOOLEAN; */
+/* typedef int boolean; */
+typedef boolean BOOLEAN;
+===========================================================================
