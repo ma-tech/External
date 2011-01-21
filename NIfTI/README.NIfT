@@ -1,0 +1,10 @@
+To build the NIfTI c library.
+
+1. Unpack the sources
+     tar -zxf nifticlib-2.0.0.tar.gz
+2. Configure using either cmake or cmake-gui with the build directory the
+   same as the source directory (nifticlib-2.0.0)
+     cmake-gui
+3. Build the libs
+     cd nifticlib-2.0.0
+     make
