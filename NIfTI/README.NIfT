@@ -8,3 +8,4 @@ To build the NIfTI c library.
 3. Build the libs:
      cd nifticlib-2.0.0
      make
+     make install
