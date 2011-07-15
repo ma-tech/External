@@ -1,5 +1,7 @@
 To build the NIfTI c library.
 
+Prerequisites: To build nifticlib-2.0.0 requires cmake
+
 1. Unpack the sources:
      tar -zxf nifticlib-2.0.0.tar.gz
 2. Optionally, configure using either cmake or cmake-gui with the build directory the
