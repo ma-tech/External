@@ -1,0 +1,17 @@
+# file		log4cpp-1.0.patch
+# author	Bill Hill
+# date		February 2012
+# version	$Id$
+# brief		Patch for use in building log4cpp-1.0 with modern C++
+#		compilers. To apply the patch use:
+#   		  patch -p0 < log4cpp-1.0.patch
++++ log4cpp-1.0/src/BasicLayout.cpp	2012-02-07 14:15:43.685044003 +0000
+--- other
+@@ -14,6 +14,7 @@
+ #ifdef LOG4CPP_HAVE_SSTREAM
+ #include <sstream>
+ #endif
++#include <memory>
+ 
+ namespace log4cpp {
+ 
