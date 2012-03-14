@@ -6,7 +6,7 @@ the case a jpeg library may be built from the sources contained in the
 gzip compressed tar archive file in this directory. To build and install
 the library:
   1. Untar the jpeg source. Using GNU tar this can be done simply by:
-       gtar -zxf jpeg-6b.tar.gz
+       tar -zxf jpeg-6b.tar.gz
   2. Change directory into the untared source directory:
        cd jpeg-6b
   3. Set the CC and CFLAGS environment variables for your C compiler, eg:

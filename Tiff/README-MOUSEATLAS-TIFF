@@ -4,13 +4,13 @@ Some Mouse Atlas software depends on a tiff library, the source of which
 is contained in the gzip compressed tar archive file. To build and install
 the library:
   1. Untar the tiff source. Using GNU tar this can be done simply by:
-       gtar -zxf tiff-3.9.5.tar.gz
+       tar -zxf tiff-3.9.5.tar.gz
   2. Change directory into the untared source directory:
        cd tiff-3.9.5
   3. Configure the software using /opt/MouseAtlas as the root of the Mouse
      Atlas software tree:
        setenv MA /opt/MouseAtlas (or for sh, export MA=/opt/MouseAtlas)
-       ./configure --prefix=$MA
+       ./configure --prefix=$MA --disable-shared
   4. Build the software:
        make
   5. Test where it will be installed:
