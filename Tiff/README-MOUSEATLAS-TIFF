@@ -9,9 +9,8 @@ the library:
        cd tiff-3.9.5
   3. Configure the software using /opt/MouseAtlas as the root of the Mouse
      Atlas software tree:
-       setenv CPPFLAGS -I/opt/MouseAtlas/include
-       setenv LDFLAGS -L/opt/MouseAtlas/lib
-       ./configure --enable-static --disable-shared --prefix=/opt/MouseAtlas
+       setenv MA /opt/MouseAtlas (or for sh, export MA=/opt/MouseAtlas)
+       ./configure --prefix=$MA
   4. Build the software:
        make
   5. Test where it will be installed:

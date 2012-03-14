@@ -4,11 +4,14 @@ Prerequisites: To build nifticlib-2.0.0 requires cmake
 
 1. Unpack the sources:
      tar -zxf nifticlib-2.0.0.tar.gz
-2. Optionally, configure using either cmake or cmake-gui with the build directory the
-   same as the source directory (nifticlib-2.0.0):
+2. Configure using either cmake or cmake-gui with the build directory the
+   same as the source directory (nifticlib-2.0.0) and setting the install
+   prefix (eg /opt/MouseAtlas):
      cmake-gui
-     or
+   or
      cmake -i
 3. Build the libs:
      cd nifticlib-2.0.0
-     make all
+     make
+4. Install the software
+     make install
