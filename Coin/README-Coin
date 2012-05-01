@@ -7,12 +7,12 @@
 
 set -x
 
-# setenv MA_HOME ~/MouseAtlas/CVSBuild/
-export MA_HOME=~/MouseAtlas/CVSBuild/
-# set path = ("$MA_HOME"/bin $path)
-export PATH="$MA_HOME"/bin:$PATH
-# setenv LD_LIBRARY_PATH "$MA_HOME"/lib:$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH="$MA_HOME"/lib:$LD_LIBRARY_PATH
+# setenv MA ~/MouseAtlas/Build/
+export MA=~/MouseAtlas/Build/
+# set path = ("$MA"/bin $path)
+export PATH="$MA"/bin:$PATH
+# setenv LD_LIBRARY_PATH "$MA"/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH="$MA"/lib:$LD_LIBRARY_PATH
 
 # Cleanup
 rm -rf *-build Coin-3.1.3 SIMVoleon-2.0.1 SoQt-1.5.0
@@ -25,15 +25,15 @@ tar -zxf SoQt-1.5.0.tar.gz
 # Patch Coin
 cd Coin-3.1.3
 patch -p0 < \
-  $MA_HOME/src/Applications/WlzQtCoinGlue/other/Coin3DVolumeRender.patch
+  $MA/src/WlzQtApps/WlzQtCoinGlue/other/Coin3DVolumeRender.patch
 cd ..
 
 # Build Coin
 rm -rf Coin-3.1.3-build
 mkdir Coin-3.1.3-build
 cd Coin-3.1.3-build
-# for OSX add --with-framework-prefix=$MA_HOME/frameworks
-../Coin-3.1.3/configure --prefix=$MA_HOME \
+# for OSX add --with-framework-prefix=$MA/frameworks
+../Coin-3.1.3/configure --prefix=$MA \
 			--enable-optimise \
 			--disable-debug
 make
@@ -42,14 +42,14 @@ cd ..
 
 # Patch SIMVoleon
 cd SIMVoleon-2.0.1
-patch -p0 < $MA_HOME/src/Applications/WlzQtCoinGlue/other/SIMVoleon.patch
+patch -p0 < $MA/src/WlzQtApps/WlzQtCoinGlue/other/SIMVoleon.patch
 cd ..
 
 # Build SIMVoleon
 rm -rf SIMVoleon-2.0.1-build
 mkdir SIMVoleon-2.0.1-build
 cd SIMVoleon-2.0.1-build
-../SIMVoleon-2.0.1/configure --prefix=$MA_HOME \
+../SIMVoleon-2.0.1/configure --prefix=$MA \
                              --enable-optimise \
 			     --disable-debug
 # Note: If linking error is generated (on Linux 64) related to crti.o then
@@ -64,8 +64,8 @@ cd ..
 rm -rf SoQt-1.5.0-build
 mkdir SoQt-1.5.0-build
 cd SoQt-1.5.0-build
-# for OSX add --with-framework-prefix=$MA_HOME/frameworks
-../SoQt-1.5.0/configure --prefix=$MA_HOME \
+# for OSX add --with-framework-prefix=$MA/frameworks
+../SoQt-1.5.0/configure --prefix=$MA \
 			--enable-optimise \
 			--disable-debug
 make
