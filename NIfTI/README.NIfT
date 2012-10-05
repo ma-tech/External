@@ -10,6 +10,8 @@ Prerequisites: To build nifticlib-2.0.0 requires cmake
      cmake-gui
    or
      cmake -i
+   If building JavaWoolz "-fPIC" will need to be set for the cmake compiler
+   flags.
 3. Build the libs:
      cd nifticlib-2.0.0
      make

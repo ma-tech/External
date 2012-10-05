@@ -1,0 +1,12 @@
+To build the Jpeg c library for use by Woolz:
+
+1. Unpack the sources:
+     tar -zxf jpegsrc.v8d.tar.gz
+2. Configure for use with Woolz:
+     cd jpeg-8d
+     ./configure --prefix $MA --with-pic
+   where the variable MA is the install prefix.
+3. Build the libs:
+     make
+4. Install:
+     make install
