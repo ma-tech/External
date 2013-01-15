@@ -1,12 +1,38 @@
-To build the Jpeg c library for use by Woolz:
+#!/bin/sh
+# \file         README-Coin
+# \author       Bill Hill
+# \date         April 2010
+# \version      $Id$
+#
+# To build the Jpeg libraries for the Woolz applications follow the
+# steps below or copy edit and run this script.
 
-1. Unpack the sources:
-     tar -zxf jpegsrc.v8d.tar.gz
-2. Configure for use with Woolz:
-     cd jpeg-8d
-     ./configure --prefix $MA --with-pic
-   where the variable MA is the install prefix.
-3. Build the libs:
-     make
-4. Install:
-     make install
+set -x
+
+# setenv MA ~/MouseAtlas/Build/
+#export MA=~/MouseAtlas/Build/
+export MA=/opt/MouseAtlas/
+# set path = ("$MA"/bin $path)
+export PATH="$MA"/bin:$PATH
+# setenv LD_LIBRARY_PATH "$MA"/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH="$MA"/lib:$LD_LIBRARY_PATH
+
+# Cleanup
+rm -rf jpeg-8d
+
+# Unpack archive
+tar -zxf jpegsrc.v8d.tar.gz
+
+# Configure for use with Woolz
+cd jpeg-8d
+./configure --prefix $MA \
+            --enable-shared \
+	    --enable-static \
+	    --with-pic
+
+make
+make install
+cd ..
+
+# Cleanup
+# rm -rf jpeg-8d
