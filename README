@@ -4,3 +4,33 @@ This directory contains software required to build and run some of the
 Mouse Atlas software. To build and install the software follow the
 instructions in the README files along side the archive files in each
 of the directories.
+
+The software in the order that they should be built and installed
+are:
+
+---------------+---------------+----------------------------------------------
+Software	Required By	Notes
+---------------+---------------+----------------------------------------------
+Jpeg		W,X,Q,I		The version here is known to work, system
+				provided ones may work too.
+Tiff		W,X,Q,I		The version here is known to work, some
+				versions have been known to have problems with
+				16 bit image byte ordering, but system
+				provided ones may work too.
+NIfTI		W,X,Q,I
+Coin		Q
+Log4Cpp		I
+QtColorPicker	Q
+Regexp				May be useful if building in a non POSIX
+				environment (eg Windows).
+Treeview
+
+Xbae		X		The version here is known to work, system
+				provided ones may work too.
+---------------+---------------+----------------------------------------------
+Key to requirements
+W (Woolz including external file format support)
+X (HGU X11 Applications including MAPaint and MA3DView)
+Q (Woolz Qt Applications including WlzWarp and WlzViewer)
+I (The Woolz IIP server - IIP3D)
+
