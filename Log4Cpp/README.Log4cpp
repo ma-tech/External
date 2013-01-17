@@ -27,7 +27,7 @@ patch -p0 < log4cpp-1.0.patch
 # Configure for use with Woolz
 cd log4cpp-1.0
 ./configure --prefix $MA \
-            --enable-shared \
+            --disable-shared \
 	    --enable-static \
 	    --with-pic
 

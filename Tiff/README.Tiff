@@ -1,10 +1,10 @@
 #!/bin/sh
-# \file         README-Jpeg
+# \file         README.Tiff
 # \author       Bill Hill
 # \date         January 2012
 # \version      $Id$
 #
-# To build the Jpeg libraries for the Woolz applications follow the
+# To build the Tiff libraries for the Woolz applications follow the
 # steps below or copy edit and run this script.
 
 set -x
@@ -26,7 +26,7 @@ tar -zxf tiff-3.9.5.tar.gz
 # Configure for use with Woolz
 cd tiff-3.9.5
 ./configure --prefix $MA \
-            --enable-shared \
+            --disable-shared \
 	    --enable-static \
 	    --with-pic \
 	    --with-jpeg-include-dir=$MA/include \

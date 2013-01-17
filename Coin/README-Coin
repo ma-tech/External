@@ -1,7 +1,7 @@
 #!/bin/sh
 # \file         README-Coin
 # \author       Bill Hill
-# \date         April 2010
+# \date         January 2013
 # \version      $Id$
 #
 # To build Coin, SIMVoleon and SoQt for the Woolz applications
@@ -39,7 +39,8 @@ cd Coin-3.1.3-build
 ../Coin-3.1.3/configure --prefix=$MA \
 			--enable-optimise \
 			--enable-static \
-			--enable-shared \
+			--disable-shared \
+	    		--with-pic \
 			--disable-debug
 make
 make install
@@ -57,7 +58,8 @@ cd SIMVoleon-2.0.1-build
 ../SIMVoleon-2.0.1/configure --prefix=$MA \
                              --enable-optimise \
 			     --enable-static \
-			     --enable-shared \
+			     --disable-shared \
+	    		     --with-pic \
 			     --disable-debug
 
 # Note: If linking error is generated (on Linux 64) related to crti.o then
@@ -79,7 +81,8 @@ cd SoQt-1.5.0-build
 ../SoQt-1.5.0/configure --prefix=$MA \
 			--enable-optimise \
 			--enable-static \
-			--enable-shared \
+			--disable-shared \
+			--with-pic \
 			--disable-debug
 make
 make install
