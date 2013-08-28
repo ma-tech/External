@@ -10,8 +10,8 @@
 set -x
 
 # setenv MA ~/MouseAtlas/Build/
-#export MA=~/MouseAtlas/Build/
-export MA=/opt/MouseAtlas/
+export MA=~/MouseAtlas/Build/
+#export MA=/opt/MouseAtlas/
 # set path = ("$MA"/bin $path)
 export PATH="$MA"/bin:$PATH
 # setenv LD_LIBRARY_PATH "$MA"/lib:$LD_LIBRARY_PATH
