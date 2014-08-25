@@ -27,10 +27,8 @@ tar -zxf SoQt-1.5.0.tar.gz
 
 # Patch Coin
 patch -p0 < coin-3.1.3.patch
-cd Coin-3.1.3
-patch -p0 < \
-  $MA/src/WlzQtApps/WlzQtCoinGlue/other/Coin3DVolumeRender.patch
-cd ..
+patch -p0 < coin-3.1.3-vr.patch
+patch -p0 < simvoleon-2.0.1.patch
 
 # Build Coin
 rm -rf Coin-3.1.3-build
@@ -48,11 +46,6 @@ cd Coin-3.1.3-build
 			--disable-debug
 make
 make install
-cd ..
-
-# Patch SIMVoleon
-cd SIMVoleon-2.0.1
-patch -p0 < $MA/src/WlzQtApps/WlzQtCoinGlue/other/SIMVoleon.patch
 cd ..
 
 # Build SIMVoleon

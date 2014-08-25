@@ -1,0 +1,32 @@
+--- SIMVoleon-2.0.1/lib/VolumeViz/render/common/CvrTextureObject.h	2014-08-25 14:55:16.640575366 +0100
++++ ./SIMVoleon-2.0.1/lib/VolumeViz/render/common/CvrTextureObject.h	2014-08-25 14:56:24.369866351 +0100
+@@ -106,7 +106,7 @@ private:
+ 
+   static CvrTextureObject * findInstanceMatch(const SoType t,
+                                               const struct CvrTextureObject::EqualityComparison & cmp);
+-  unsigned long CvrTextureObject::hashKey(void) const;
++  unsigned long hashKey(void) const;
+   static unsigned long hashKey(const struct CvrTextureObject::EqualityComparison & cmp);
+ };
+ 
+--- SIMVoleon-2.0.1/lib/VolumeViz/misc/CvrCLUT.h    2014-08-25 14:51:45.270035597 +0100
++++ ./SIMVoleon-2.0.1/lib/VolumeViz/misc/CvrCLUT.h  2014-08-25 15:03:49.575468041 +0100
+@@ -72,7 +72,7 @@ private:
+   void regenerateGLColorData(void);
+ 
+   struct GLContextStorage {
+-    GLContextStorage::GLContextStorage(uint32_t id)
++    GLContextStorage(uint32_t id)
+     {
+       this->texture1Dclut = 0;
+       this->ctxid = id;
+@@ -83,7 +83,7 @@ private:
+   };
+   SbList<struct GLContextStorage *> contextlist;
+   struct GlobalGLContextStorage {
+-    GlobalGLContextStorage::GlobalGLContextStorage(void)
++    GlobalGLContextStorage(void)
+     {
+       this->fragmentprogramid[0] = this->fragmentprogramid[1] = 0;
+     }
+
