@@ -38,6 +38,9 @@ mkdir Coin-3.1.3-build
 cd Coin-3.1.3-build
 # for OSX add --with-framework-prefix=$MA/frameworks
 ../Coin-3.1.3/configure --prefix=$MA \
+			--disable-dl-openal \
+			--disable-dl-freetype \
+			--disable-dl-fontconfig \
 			--enable-optimise \
 			--enable-static \
 			--disable-shared \
@@ -68,7 +71,7 @@ cd SIMVoleon-2.0.1-build
 # lines containing crti.o, eg
 # vi +/crt'[in]'.o libtool
 # or
-sed -i orig -e 's/^\(p...*dep_objects *= *"...*"\)/# \1/' libtool
+# sed -i orig -e 's/^\(p...*dep_objects *= *"...*"\)/# \1/' libtool
 
 make
 make install
