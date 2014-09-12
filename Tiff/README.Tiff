@@ -16,14 +16,14 @@ export PATH="$MA"/bin:$PATH
 export LD_LIBRARY_PATH="$MA"/lib:$LD_LIBRARY_PATH
 
 # Cleanup
-rm -rf tiff-3.9.5
+rm -rf tiff-4.0.3
 
 # Unpack archive
-tar -zxf tiff-3.9.5.tar.gz
+tar -zxf tiff-4.0.3.tar.gz
 
 # Configure for use with Woolz
-cd tiff-3.9.5
-./configure --prefix $MA \
+cd tiff-4.0.3
+./configure --prefix=$MA \
             --disable-shared \
 	    --enable-static \
 	    --with-pic \
@@ -35,4 +35,4 @@ make install
 cd ..
 
 # Cleanup
-# rm -rf tiff-3.9.5
+# rm -rf tiff-4.0.3
