@@ -6,11 +6,11 @@
 #
 # To build Coin, SIMVoleon and SoQt for the Woolz applications
 # follow the steps below or copy edit and run this script.
-
 set -x
 
 # setenv MA ~/MouseAtlas/Build/
 #export MA=~/MouseAtlas/Build/
+#export MA=~/MouseAtlas/Build/debug
 export MA=/opt/MouseAtlas/
 # set path = ("$MA"/bin $path)
 export PATH="$MA"/bin:$PATH
@@ -18,28 +18,24 @@ export PATH="$MA"/bin:$PATH
 export LD_LIBRARY_PATH="$MA"/lib:$LD_LIBRARY_PATH
 
 # Cleanup
-rm -rf *-build Coin-3.1.3 SIMVoleon-2.0.1 SoQt-1.5.0
+rm -rf *-build Coin3D-20111204 SIMVoleon-20111204 SoQt-1.5.0
 
 # Unpack archives
-tar -zxf Coin-3.1.3.tar.gz
-tar -zxf SIMVoleon-2.0.1.tar.gz
+tar -zxf Coin3D-20111204.tar.gz
+tar -zxf SIMVoleon-20111204.tar.gz
 tar -zxf SoQt-1.5.0.tar.gz
 
-# Patch Coin
-patch -p0 < coin-3.1.3.patch
-patch -p0 < coin-3.1.3-vr.patch
-patch -p0 < simvoleon-2.0.1.patch
-
 # Build Coin
-rm -rf Coin-3.1.3-build
-mkdir Coin-3.1.3-build
-cd Coin-3.1.3-build
+rm -rf Coin3D-20111204-build
+mkdir Coin3D-20111204-build
+cd Coin3D-20111204-build
 # for OSX add --with-framework-prefix=$MA/frameworks
-../Coin-3.1.3/configure --prefix=$MA \
+../Coin3D-20111204/configure --prefix=$MA \
 			--disable-dl-openal \
 			--disable-dl-freetype \
 			--disable-dl-fontconfig \
-			--enable-optimise \
+			--enable-optimization \
+			--enable-threadsafe \
 			--enable-static \
 			--disable-shared \
 	    		--with-pic \
@@ -49,11 +45,12 @@ make install
 cd ..
 
 # Build SIMVoleon
-rm -rf SIMVoleon-2.0.1-build
-mkdir SIMVoleon-2.0.1-build
-cd SIMVoleon-2.0.1-build
-../SIMVoleon-2.0.1/configure --prefix=$MA \
-                             --enable-optimise \
+rm -rf SIMVoleon-20111204-build
+mkdir SIMVoleon-20111204-build
+cd SIMVoleon-20111204-build
+../SIMVoleon-20111204/configure --prefix=$MA \
+                             --enable-optimization \
+			     --enable-threadsafe \
 			     --enable-static \
 			     --disable-shared \
 	    		     --with-pic \
@@ -86,4 +83,4 @@ make install
 cd ..
 
 # Cleanup
-# rm -rf *-build Coin-3.1.3 SIMVoleon-2.0.1 SoQt-1.5.0
+# rm -rf *-build Coin3D-20111204 SIMVoleon-20111204 SoQt-1.5.0
