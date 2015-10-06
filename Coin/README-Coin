@@ -4,11 +4,18 @@
 # \date         January 2013
 # \version      $Id$
 #
+# The Coin and SIMVoleon were both derived from the bitbucket
+# repository (https://bitbucket.org/Coin3D/) but with both
+# local and bitbucket/github contributions for bug fixes.
+# Where bug fixes have been made the original file is
+# preserved with the .orig extension added.
+# SoQt was also originaly downloaded from bitbucket.
 # To build Coin, SIMVoleon and SoQt for the Woolz applications
 # follow the steps below or copy edit and run this script.
+
 set -x
 
-# setenv MA ~/MouseAtlas/Build/
+#setenv MA ~/MouseAtlas/Build/
 #export MA=~/MouseAtlas/Build/
 #export MA=~/MouseAtlas/Build/debug
 export MA=/opt/MouseAtlas/
