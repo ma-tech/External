@@ -18,13 +18,14 @@ export PATH="$MA"/bin:$PATH
 export LD_LIBRARY_PATH="$MA"/lib:$LD_LIBRARY_PATH
 
 # Cleanup
-rm -rf jpeg-8d
+rm -rf libjpeg-turbo-1.4.2
 
 # Unpack archive
-tar -zxf jpegsrc.v8d.tar.gz
+tar -zxf libjpeg-turbo-1.4.2.tar.gz
 
 # Configure for use with Woolz
-cd jpeg-8d
+cd libjpeg-turbo-1.4.2
+autoreconf -fi
 ./configure --prefix $MA \
             --disable-shared \
 	    --enable-static \
@@ -35,4 +36,4 @@ make install
 cd ..
 
 # Cleanup
-# rm -rf jpeg-8d
+# rm -rf libjpeg-turbo-1.4.2
