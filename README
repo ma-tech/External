@@ -23,6 +23,7 @@ Jsmn            M
 Jpeg		IQWX		The version here is known to work, system
 				provided ones may work too.
 Log4Cpp		I
+Fcgi            I
 MongoC          M
 NIfTI		IQWX
 PNG             IM
