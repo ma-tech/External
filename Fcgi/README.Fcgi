@@ -24,7 +24,7 @@ patch -p0 < fcgi-2.4.0-patch-01
 
 # Configure for use with Woolz
 cd fcgi-2.4.0
-./configure --prefix=$MA
+./configure --prefix=$MA --enable-static --disable-shared
 
 make
 make install
