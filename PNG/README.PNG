@@ -16,13 +16,13 @@ export PATH="$MA"/bin:$PATH
 export LD_LIBRARY_PATH="$MA"/lib:$LD_LIBRARY_PATH
 
 # Cleanup
-rm -rf libpng-1.2.50
+rm -rf libpng-1.6.29
 
 # Unpack archive
-tar -zxf libpng-1.2.50.tar.gz
+tar -zxf libpng-1.6.29.tar.gz
 
 # Configure for use with Woolz
-cd libpng-1.2.50
+cd libpng-1.6.29
 ./configure --prefix $MA \
             --disable-shared \
 	    --enable-static \
@@ -33,5 +33,5 @@ make install
 cd ..
 
 # Cleanup
-# rm -rf libpng-1.2.50
+# rm -rf libpng-1.6.29
 
