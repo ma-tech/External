@@ -21,7 +21,7 @@ export LD_LIBRARY_PATH="$MA"/lib:$LD_LIBRARY_PATH
 rm -rf xbae-4.60.4
 
 # Unpack archive
-tar -xf xbae-4.60.4.tar
+tar -zxf xbae-4.60.4.tar.gz
 
 # Configure for use with Woolz
 cd xbae-4.60.4
