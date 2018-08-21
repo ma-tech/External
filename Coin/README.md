@@ -32,6 +32,9 @@ tar -zxf Coin3D-20111204.tar.gz
 tar -zxf SIMVoleon-20111204.tar.gz
 tar -zxf SoQt-1.5.0.tar.gz
 
+# Apply patches
+patch -p0 < Coin3D-20111204-memalloc.patch # Required for OpenSUSE Leap 15.0 (maybe gcc 7.3)
+
 # Build Coin
 rm -rf Coin3D-20111204-build
 mkdir Coin3D-20111204-build
