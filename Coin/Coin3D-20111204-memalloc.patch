@@ -1,0 +1,45 @@
++++ Coin3D-20111204/src/base/memalloc.cpp	2018-08-21 16:36:43.845963169 +0100
+--- memalloc.cpp.new				2018-08-21 16:36:32.734075007 +0100
+@@ -101,14 +101,14 @@
+   unsigned int numbytes;
+   int chunkmultiplier;
+   cc_memalloc_memnode * node =
+-    (cc_memalloc_memnode*) malloc(sizeof(cc_memalloc_memnode));
++    (cc_memalloc_memnode*) calloc(1, sizeof(cc_memalloc_memnode));
+ 
+   chunkmultiplier = allocator->strategy(allocator->num_allocated_units);
+   assert(chunkmultiplier >= 1 && "strategy callback returned erroneous value");
+   numbytes = allocator->chunksize * chunkmultiplier;
+   
+   node->next = allocator->memnode;
+-  node->block = (unsigned char*) malloc(numbytes);
++  node->block = (unsigned char*) calloc(1, numbytes);
+   node->currpos = 0;
+   node->size = numbytes;
+ 
+@@ -145,7 +145,7 @@
+ cc_memalloc_construct(const unsigned int unitsize)
+ {
+   cc_memalloc * allocator = (cc_memalloc*)
+-    malloc(sizeof(cc_memalloc));
++    calloc(1, sizeof(cc_memalloc));
+ 
+   allocator->chunksize = unitsize;
+   if (unitsize < sizeof(cc_memalloc_free)) {
+@@ -192,10 +192,12 @@
+ void
+ cc_memalloc_deallocate(cc_memalloc * allocator, void * ptr)
+ {
+-  cc_memalloc_free * newfree = (cc_memalloc_free*) ptr;
+-  allocator->num_allocated_units--;
+-  newfree->next = allocator->free;
+-  allocator->free = newfree;
++  if (allocator && ptr) {
++    cc_memalloc_free * newfree = (cc_memalloc_free*) ptr;
++    allocator->num_allocated_units--;
++    newfree->next = allocator->free;
++    allocator->free = newfree;
++  }
+ }
+ 
+ /*!
