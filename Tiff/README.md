@@ -1,5 +1,5 @@
 #!/bin/sh
-# \file         README.Tiff
+# \file         Tiff/README.md
 # \author       Bill Hill
 # \date         January 2012
 # \version      $Id$

@@ -1,5 +1,5 @@
 #!/bin/sh
-# \file         README.Xbae
+# \file         Xbae/README.md
 # \author       Bill Hill
 # \date         January 2012
 # \version      $Id$

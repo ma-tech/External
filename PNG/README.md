@@ -1,5 +1,5 @@
 #!/bin/sh
-# \file         README.PNG
+# \file         PNG/README.md
 # \author       Bill Hill
 # \date         September 2013
 # \version      $Id$

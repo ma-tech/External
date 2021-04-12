@@ -1,5 +1,5 @@
 #!/bin/sh
-# \file         README.Fcgi
+# \file         Fcgi/README.md
 # \author       Bill Hill
 # \date         February 2016
 # \version      $Id$

@@ -1,5 +1,5 @@
 #!/bin/sh
-# \file         README-Log4cpp
+# \file         Log4Cpp/README.md
 # \author       Bill Hill
 # \date         January 2012
 # \version      $Id$

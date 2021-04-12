@@ -1,5 +1,5 @@
 #!/bin/sh
-# \file         README-Coin
+# \file         Coin/README.md
 # \author       Bill Hill
 # \date         January 2013
 # \version      $Id$

@@ -1,5 +1,5 @@
 #!/bin/sh
-# \file		README.Qtcolorpicker		
+# \file		QtColorPicker/README.md		
 # \author	Bill Hill
 # \date		April 2010
 # \version	$Id$
