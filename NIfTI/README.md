@@ -1,19 +1,40 @@
-To build the NIfTI c library.
+# \file         NIfTI/README.md
+# \author       Bill Hill
+# \date         April 2021
+# \version      $Id$
+#
+# To build a NIfTI c library for the Woolz applications follow the
+# steps below or copy edit and run this script.
 
-Prerequisites: To build nifticlib-2.0.0 requires cmake
+# setenv MA ~/MouseAtlas/Build/
+#export MA=~/MouseAtlas/Build/
+export MA=/opt/MouseAtlas/
+# set path = ("$MA"/bin $path)
+export PATH="$MA"/bin:$PATH
+# setenv LD_LIBRARY_PATH "$MA"/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH="$MA"/lib:$LD_LIBRARY_PATH
 
-1. Unpack the sources:
-     tar -zxf nifticlib-2.0.0.tar.gz
-2. Configure using either cmake or cmake-gui with the build directory the
-   same as the source directory (nifticlib-2.0.0) and setting the install
-   prefix (eg /opt/MouseAtlas):
-     cmake-gui
-   or
-     cmake -i
-   If building JavaWoolz "-fPIC" will need to be set for the cmake compiler
-   flags.
-3. Build the libs:
-     cd nifticlib-2.0.0
-     make
-4. Install the software
-     make install
+# Cleanup
+#rm -rf nifticlib-2.0.0
+
+# Unpack archive
+#tar -zxf nifticlib-2.0.0.tar.gz
+
+# Configure for use with Woolz making sure to use position independent
+# code (using -fPIC for GCC or flags suitable for your compiller)
+mkdir -p nifticlib-2.0.0-build
+cd nifticlib-2.0.0-build
+cmake -DBUILD_TESTING=Off \
+      -DCMAKE_BUILD_TYPE=Release \
+      -DCMAKE_C_FLAGS=-fPIC \
+      -DCMAKE_INSTALL_PREFIX=$MA ../nifticlib-2.0.0
+
+# Build
+make
+
+# Install
+make install
+
+# Cleanup
+cd ..
+#rm -rf nifticlib-2.0.0 nifticlib-2.0.0-build
